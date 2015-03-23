@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Tervetuloa Drinkkiarkistoon!</h1>
+
+  <br> Tämä on Drinkkiarkisto, jossa voit selailla erilaisten drinkkien valmistusohjeita tai etsiä drinkkiohjeita tietyn raaka-aineen mukaan. Sivuston käyttäminen vaatii sisäänkirjautumisen.  
+ <br>
+ <br>
+  <!-- Kaikki lomakkeen elementit form-tagin sisään -->
+  <form>
+    <!-- Tekstikenttä käyttäjätunnukselle -->
+    <div class="form-group">
+      <label>Käyttäjätunnus</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <!-- Salasanakenttä salasanalle -->
+    <div class="form-group">
+      <label>Salasana</label>
+      <input type="password" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+
+    <br>
+    <br>    
+    <br>
+    Etkö omista vielä käyttäjätunnusta? Ei hätää, pääset luomaan uudet tunnukset täältä:   <button type="submit" class="btn btn-primary">Uusi käyttäjä</button>
+</form>
+{% endblock %}

@@ -1,4 +1,4 @@
-{{ '{' }}% extends "base.html" %{{ '}' }}
+{% extends "base.html" %}
 {% block content %}
   <h1>Muokkaa drinkkiä Screwdriver</h1>
 
@@ -21,7 +21,15 @@
     </div>
  <div class="form-group">
       <label>Raaka-aineet</label>
-      <input type="text" class="form-control" value="Cocktail">
+      <input type="text" class="form-control" value="Vodka">
+      <input type="text" class="form-control" value="Appelsiinimehu">    
+      <button type="submit" class="btn btn-primary">Lisää uusi</button>
+    </div>
+ <div class="form-group">
+      <label>Ainemäärät</label>  
+      <input type="text" class="form-control" value="4 cl">
+      <input type="text" class="form-control" value="8 cl">
+      <button type="submit" class="btn btn-primary">Lisää uusi</button>
     </div>
  <div class="form-group">
       <label>Lisäyspäivä</label>
@@ -31,7 +39,7 @@
 
     <div class="form-group">
       <label>Valmistusohje ja kuvaus</label>
-      <textarea class="form-control">        Kaada vodka ja appelsiinimehu jäillä täytettyyn lasiin. Koristele appelsiinin viipaleella.
+      <textarea class="form-control">Kaada vodka ja appelsiinimehu jäillä täytettyyn lasiin. Koristele appelsiinin viipaleella.
       </textarea>
     </div>
     <div class="form-group">
