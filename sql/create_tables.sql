@@ -22,7 +22,7 @@ CREATE TABLE Lasityyppi(
   lkuvaus text
 );
 
-CREATE TABLE Juomatyyppi(
+CREATE TABLE Juomalaji(
   id SERIAL PRIMARY KEY,
   name varchar(50) NOT NULL,
   jkuvaus text
@@ -33,9 +33,9 @@ CREATE TABLE Drinkkiohje(
   ktunnus INTEGER REFERENCES Kayttaja(id), 
   ytunnus INTEGER REFERENCES Yllapitaja(id),
   raine INTEGER REFERENCES RaakaAine(id),
-  jtyyppi INTEGER REFERENCES Juomatyyppi(id),
+  jlaji INTEGER REFERENCES Juomalaji(id),
   ltyyppi INTEGER REFERENCES Lasityyppi(id),
-  name varchar(50) NOT NULL,
+  nimi varchar(50) NOT NULL,
   lpva DATE,
   vohje TEXT NOT NULL 
 );

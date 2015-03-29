@@ -1,8 +1,29 @@
 <?php
 
-  $routes->get('/', function() {
+  $routes->get('/', function(){
     HelloWorldController::index();
   });
+
+  $routes->get('/drinklist', function(){
+    DrinkListController::index();
+  });
+
+  $routes->post('/drinklist/new', function(){
+    DrinkListController::store();
+  });
+
+// NÄMÄ VIELÄ TYÖN ALLA
+
+//  $routes->get('/drinklist/new', function(){
+//    DrinkListController::create();
+//  });
+
+//  $routes->get('/drinklist/:id', function($id){
+//    DrinkListController::show($id);
+//  });
+
+
+//------TESTISIVUT----->
 
   $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
@@ -20,3 +41,4 @@
     HelloWorldController::drink_edit();
   });
 
+?>
