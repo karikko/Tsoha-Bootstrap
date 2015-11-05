@@ -7,7 +7,7 @@ CREATE TABLE Yllapitaja(
 CREATE TABLE Kayttaja(
   id SERIAL PRIMARY KEY,
   name varchar(50) NOT NULL,
-  age date NOT NULL
+  age integer NOT NULL
 );
 
 CREATE TABLE RaakaAine(

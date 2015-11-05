@@ -9,7 +9,7 @@
     }
 
     public static function all(){
-      $query = DB::connection()->prepare('SELECT * FROM Drink');
+      $query = DB::connection()->prepare('SELECT * FROM drinkkiohje');
       $query->execute();
       $rows = $query->fetchAll();
       $drinks = array();
@@ -32,7 +32,7 @@
    }
 
    public static function find($id){
-     $query = DB::connection()->prepare('SELECT * FROM Drink WHERE id = :id LIMIT 1');
+     $query = DB::connection()->prepare('SELECT * FROM drinkkiohje WHERE id = :id LIMIT 1');
      $query -> execute(array('id' => $id));
      $row = $query->fetch();
 
@@ -55,18 +55,18 @@
      }
 
      public function save(){
-     $query = DB::connection()->prepare('INSERT INTO Drink(nimi, jlaji, ltyyppi, raine, lpva, vohje) VALUES (:nimi, :jlaji, :ltyyppi, :raine, :lpva, :vohje) RETURNING id');
-     $query->execute(array('nimi' => $this->nimi, 'jlaji' => $this->jlaji, 'ltyyppi' => $this->ltyyppi, 'raine' => $this->raine, 'lpva' => $this->lpva, 'vohje' => $this->vohje));
+     $query = DB::connection()->prepare("INSERT INTO drinkkiohje(ytunnus, ktunnus, nimi, jlaji, ltyyppi, raine, lpva, vohje) VALUES (1, 1, :nimi, :jlaji, :ltyyppi, :raine, :lpva, :vohje) RETURNING id");
+     $query->execute(array('nimi' => $this->nimi, 'jlaji' => $this->jlaji, 'ltyyppi' => $this->ltyyppi, 'raine' => $this->raine, 'lpva' => $this->lpva, 'vohje' => $this->vohje));     
      $row = $query->fetch();
-     Kint::trace();
-     Kint::dump($row);
-//     $this->id = $row['id'];
+//     Kint::trace();
+//     Kint::dump($row);
+     $this->id = $row['id'];
      }
 
 
  }
 
-   $screwdriver = new Drink(array('id' => 1, 'name' => 'Screwdriver', 'jlaji' => 'cocktail', 'ltyyppi' => 'highball', 'raine' => 'vodka, appelsiinimehu', 'lpva' => '28.3.2015' ,'vohje' => 'Kaada vodka ja appelsiinimehu jäillä täytettyyn lasiin.'));
+//   $screwdriver = new Drink(array('id' => 1, 'name' => 'Screwdriver', 'jlaji' => 'cocktail', 'ltyyppi' => 'highball', 'raine' => 'vodka, appelsiinimehu', 'lpva' => '28.3.2015' ,'vohje' => 'Kaada vodka ja appelsiinimehu jäillä täytettyyn lasiin.'));
 
 //   echo $screwdriver->name;
 

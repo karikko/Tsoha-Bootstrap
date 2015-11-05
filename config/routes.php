@@ -8,19 +8,20 @@
     DrinkListController::index();
   });
 
-  $routes->post('/drinklist/new', function(){
+  $routes->post('/drinklist', function(){
     DrinkListController::store();
   });
 
+  $routes->get('/drinklist/new', function(){
+    DrinkListController::create();
+  });
+
+
 // NÄMÄ VIELÄ TYÖN ALLA
 
-//  $routes->get('/drinklist/new', function(){
-//    DrinkListController::create();
-//  });
-
-//  $routes->get('/drinklist/:id', function($id){
-//    DrinkListController::show($id);
-//  });
+  $routes->get('/drinklist/:id', function($id){
+    DrinkListController::show($id);
+  });
 
 
 //------TESTISIVUT----->

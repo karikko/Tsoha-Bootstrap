@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{drink.name}}</h1>
+  <!-- Tiedot tulee listana tähän -->
+  <ul>
+    <li><strong>Nimi:</strong> {{drink.name}}</li>
+    <li><strong>Muut nimet:</strong> </li>
+    <li><strong>Juomaluokka:</strong> {{drink.jlaji}}</label></li>
+    <li><strong>Suositeltu lasi:</strong> {{drink.ltyyppi}}</li>
+    <li><strong>Raaka-aineet:</strong> {{drink.raine}}<label class="table">
+      <tr>
+        <td>  </td>
+        <td>  </td>
+      </tr>
+<br>
+      <tr>
+        <td>  </td>
+        <td>  </td>
+      </tr>
+
+</table></li>
+    <li><strong>Lisäyspäivä:</strong> {{drink.date}}</li>
+
+  </ul>
+  <!-- Valmistusohje ja kuvaus tulee tähän -->
+  <p>{{drink.vohje}}</p>
+{% endblock %}
+
+
