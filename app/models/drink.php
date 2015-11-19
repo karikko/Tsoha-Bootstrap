@@ -4,8 +4,55 @@
 
     public $id, $ytunnus, $ktunnus, $raine, $jlaji, $ltyyppi, $nimi, $lpva, $vohje;
 
+    public function validate_nimi(){
+      $errors = array();
+      if($this->nimi == '' || $this->nimi == null){
+        $errors[] = 'Nimi ei saa olla tyhjä!';
+      }
+      if(strlen($this->nimi) <3){
+        $errors[] = 'Nimen pituuden tulee olla vähintään kolme merkkiä.';
+      }
+
+      return $errors;
+    }
+
+//    public function validate_jlaji(){
+//      $errors = array();
+//      if(this->jlaji == '' || $this->jlaji == null){
+//        $errors[] = 'Valitse juomalaji!';
+//      }
+//      return $errors;
+//    }
+
+//    public function validate_ltyyppi(){
+//      $errors = array();
+//      if(this->ltyyppi == '' || $this->ltyyppi == null){
+//        $errors[] = 'Valitse lasin malli!';
+//      }
+//      return $errors;
+//    }
+
+//    public function validate_raine(){
+//      $errors = array();
+//      if(this->raine == '' || $this->raine == null){
+//        $errors[] = 'Valitse vähintään yksi raaka-aine!';
+//      }
+//      return $errors;
+//    }
+
+    public function validate_vohje(){
+      $errors = array();
+      if(this->vohje == '' || $this->vohje == null){
+        $errors[] = 'Anna valmistusohjeet!';
+      }
+      return $errors;
+    }
+
+
     public function __construct($attributes){
       parent::__construct($attributes);
+//    VALIDOINTIA VARTEN:
+//    $this->validators = array(validate_nimi', 'validate_jlaji', 'validate_ltyyppi', 'validate_raine', 'validate_lpva', 'validate_vohje');
     }
 
     public static function all(){
@@ -53,6 +100,7 @@
 
      return null;
      }
+
 
      public function save(){
      $query = DB::connection()->prepare("INSERT INTO drinkkiohje(ytunnus, ktunnus, nimi, jlaji, ltyyppi, raine, lpva, vohje) VALUES (1, 1, :nimi, :jlaji, :ltyyppi, :raine, :lpva, :vohje) RETURNING id");

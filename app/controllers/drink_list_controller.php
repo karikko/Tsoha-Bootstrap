@@ -15,21 +15,44 @@ class DrinkListController extends BaseController{
 
   public static function store(){
     $params = $_POST;
-    $drink = new Drink(array(
+//    $drink = new Drink(array(
+    $attributes = array(
       'nimi' => $params['nimi'],
       'jlaji' => 1,
       'ltyyppi' => 1,
       'raine' => 1,
       'lpva' => $params['lpva'],
       'vohje' => $params['vohje'],
-      ));
+      );
+
+      $drink =new Drink($attributes);
+      $errors = $drink->errors();
+
+      if(conut($errors) == 0){
+        $drink->save();
+
+        Redirect::to('/drinklist/' . $drink->id, array('message' => 'Juomaehdotuksesi on otettu vastaan.'));
+      }else{
+        View::make('drinklist/new.html' arrray('errors' => $errors, 'attributes' =>$attributes));
+      }
+    }
+
+
+//     'nimi' => $params['nimi'],
+//      'jlaji' => 1,
+//      'ltyyppi' => 1,
+//      'raine' => 1,
+//      'lpva' => $params['lpva'],
+//      'vohje' => $params['vohje'],
+//      ));
+
 
 //    Kint::dump($params);
 
-    $drink->save();
+//    $drink->save();
 
-    Redirect::to('/drinklist/' . $drink->id, array('message' => 'Juomaehdotuksesi on otettu vastaan.'));
-  }
+//    Redirect::to('/drinklist/' . $drink->id, array('message' => 'Juomaehdotuksesi on otettu vastaan.'));
+//  }
 
   public static function show(){
   View::make('/drinklist/drink_show.html');
