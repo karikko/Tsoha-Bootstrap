@@ -23,6 +23,27 @@
     DrinkListController::show($id);
   });
 
+ $routes->get('/drinklist/:id/edit', function($id){
+    DrinkListController::edit($id);
+  });
+
+ $routes->post('/drinklist/:id/edit', function($id){
+    DrinkListController::update($id);
+  });
+
+ $routes->post('/drinklist/:id/destroy', function($id){
+    DrinkListController::destroy($id);
+  });
+
+ $routes->get('/login', function(){
+   // Kirjautumislomakkeen esittäminen
+   UserController::login(); 
+ });
+ $routes->post('/login', function(){
+   // Kirjautumisen käsittely
+   UserController::handle_login();
+ });
+
 
 //------TESTISIVUT----->
 

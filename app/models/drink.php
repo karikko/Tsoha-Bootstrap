@@ -9,10 +9,9 @@
       if($this->nimi == '' || $this->nimi == null){
         $errors[] = 'Nimi ei saa olla tyhjä!';
       }
-      if(strlen($this->nimi) <3){
+      if(strlen($this->nimi) < 3){
         $errors[] = 'Nimen pituuden tulee olla vähintään kolme merkkiä.';
       }
-
       return $errors;
     }
 
@@ -40,13 +39,13 @@
 //      return $errors;
 //    }
 
-    public function validate_vohje(){
-      $errors = array();
-      if(this->vohje == '' || $this->vohje == null){
-        $errors[] = 'Anna valmistusohjeet!';
-      }
-      return $errors;
-    }
+//    public function validate_vohje(){
+//      $errors = array();
+//      if(this->vohje == '' || $this->vohje == null){
+//        $errors[] = 'Anna valmistusohjeet!';
+//      }
+//      return $errors;
+//    }
 
 
     public function __construct($attributes){
